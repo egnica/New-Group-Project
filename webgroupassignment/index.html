@@ -1,0 +1,98 @@
+<DOCTYPE <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <script src="list.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+   
+</head>
+<body>
+    <h1>title</h1>
+    
+    
+    <script>
+        var neighborhood = []
+        var offense = []
+        var precinct= []
+
+        for(var i=0; i < policeList.length; i++){
+            var police = policeList[i] 
+            neighborhood.push(police.properties.neighborhood);
+            offense.push(police.properties.offence);
+            precinct.push(police.properties.precinct);
+        
+        }
+        //console.log(neighborhood.length);
+
+          function foo(neighborhood) {
+                var a = [], b = [], prev;
+
+                
+                neighborhood.sort();
+                for ( var i = 0; i < neighborhood.length; i++ ) {
+                    if ( neighborhood[i] !== prev ) {
+                        a.push(neighborhood[i]);
+                        b.push(1);
+                    } else {
+                        b[b.length-1]++;
+                    }
+                    prev = neighborhood[i];
+                }
+                var neigh1, neigh2, neigh3, neigh4, neigh5;
+                var arrests1 = 0, arrests2 = 0, arrests3 = 0, arrests4 = 0, arrests5 = 0;
+                for (var i = 0; i <neighborhood.length; i++ ){
+                    if (arrests1 < b[i]){
+                        arrests1 = b[i];
+                        neigh1 = a[i];
+                    }
+                    else if (arrests2 < b[i] && arrests2 < arrests1){
+                        arrests2 = b[i];
+                        neigh2 = a[i];
+                    }
+                    else if (arrests3 < b[i] && arrests3 < arrests2){
+                        arrests3 = b[i];
+                        neigh3 = a[i];
+                    }
+                    else if (arrests4 < b[i] && arrests4 < arrests3){
+                        arrests4 = b[i];
+                        neigh4 = a[i];
+                    }
+                    else if (arrests5 < b[i] && arrests5 < arrests4){
+                        arrests5 = b[i];
+                        neigh5 = a[i];
+                    }
+                }
+                console.log(arrests1);
+                console.log(neigh1);
+                console.log(arrests2);
+                console.log(neigh2);
+                console.log(arrests3);
+                console.log(neigh3);
+                console.log(arrests4);
+                console.log(neigh4);
+                console.log(arrests5);
+                console.log(neigh5);
+                return [a, b];
+            }
+            
+        
+            
+var result = foo(neighborhood);
+console.log('[' + result[0] + ']<br>[' + result[1] + ']') 
+
+console.log(result[0]);
+console.log(result[1]);
+
+
+
+        
+        
+    </script>
+    
+    
+</body>
+</html>
