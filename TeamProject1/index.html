@@ -10,6 +10,80 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="policeData.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				['Neighborhood', 'Incidents'],
+				['Downtown West', 1191],
+				['Whittier', 487],
+				['Jordan', 305],
+				['Steward', 271],
+				['Ventura Village', 259]
+				]);
+
+				var options = {
+				title: 'Neighborhoods'
+				};
+
+				var chart = new google.visualization.BarChart(document.getElementById('neighborhoodChart'));
+
+				chart.draw(data, options);
+			}
+		</script>
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+	
+			function drawChart() {
+	
+				var data = google.visualization.arrayToDataTable([
+				['Offenses', 'Incidents'],
+				['Theft (other)', 2856],
+				['Theft (motor vehicle)', 2404],
+				['Burglary of Business', 451],
+				['Shoplifting', 442],
+				['Domestic Assault/ Strangulation', 199]
+				]);
+	
+				var options = {
+				title: 'Offenses'
+				};
+	
+				var chart = new google.visualization.BarChart(document.getElementById('offencesChart'));
+	
+				chart.draw(data, options);
+			}
+		</script>
+		<script type="text/javascript">
+			google.charts.load('current', {'packages':['corechart']});
+			google.charts.setOnLoadCallback(drawChart);
+	
+			function drawChart() {
+	
+				var data = google.visualization.arrayToDataTable([
+				['Precinct', 'Incidents'],
+				['3rd Precinct', 3062],
+				['5th Precinct', 2514],
+				['1st Precinct', 2288],
+				['4th Precinct', 2206],
+				['2nd Precinct', 1760]
+				]);
+	
+				var options = {
+				title: 'Precinct'
+				};
+	
+				var chart = new google.visualization.BarChart(document.getElementById('reportChart'));
+	
+				chart.draw(data, options);
+			}
+		</script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -61,7 +135,7 @@
 									each precinct.</p>
 								</header>
 								<div id="reportChart">
-
+									
 								</div>
 								<footer class="major">
 								</footer>
@@ -112,6 +186,5 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
