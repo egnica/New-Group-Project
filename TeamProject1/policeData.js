@@ -1,4 +1,4 @@
-[
+var policeList = [
     {
       "precinct": 4,
       "reportedDate": "2018-06-30T00:00:00.000Z",

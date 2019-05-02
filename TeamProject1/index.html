@@ -12,19 +12,94 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="policeData.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script type="text/javascript">
+		<script>
+        var neighborhood = []
+        var offense = []
+        var precinct= []
+
+        for(var i=0; i < policeList.length; i++){
+            var police = policeList[i] 
+            neighborhood.push(police.neighborhood);
+            offense.push(police.offence);
+            precinct.push(police.precinct);
+        
+        }
+        //console.log(neighborhood.length);
+
+          function foo(neighborhood) {
+                var a = [], b = [], prev;
+
+                
+                neighborhood.sort();
+                for ( var i = 0; i < neighborhood.length; i++ ) {
+                    if ( neighborhood[i] !== prev ) {
+                        a.push(neighborhood[i]);
+                        b.push(1);
+                    } else {
+                        b[b.length-1]++;
+                    }
+                    prev = neighborhood[i];
+                }
+                var neigh1, neigh2, neigh3, neigh4, neigh5;
+                var arrests1 = 0, arrests2 = 0, arrests3 = 0, arrests4 = 0, arrests5 = 0;
+                for (var i = 0; i <neighborhood.length; i++ ){
+                    if (arrests1 < b[i]){
+                        arrests1 = b[i];
+                        neigh1 = a[i];
+                    }
+                    else if (arrests2 < b[i] && arrests2 < arrests1){
+                        arrests2 = b[i];
+                        neigh2 = a[i];
+                    }
+                    else if (arrests3 < b[i] && arrests3 < arrests2){
+                        arrests3 = b[i];
+                        neigh3 = a[i];
+                    }
+                    else if (arrests4 < b[i] && arrests4 < arrests3){
+                        arrests4 = b[i];
+                        neigh4 = a[i];
+                    }
+                    else if (arrests5 < b[i] && arrests5 < arrests4){
+                        arrests5 = b[i];
+                        neigh5 = a[i];
+                    }
+				}
+				
+				console.log(arrests1);
+				
+                console.log(neigh1);
+                //console.log(arrests2);
+                //console.log(neigh2);
+                //console.log(arrests3);
+                //console.log(neigh3);
+                //console.log(arrests4);
+                //console.log(neigh4);
+                //console.log(arrests5);
+                //console.log(neigh5);
+				//return [a, b];
+
 			google.charts.load('current', {'packages':['corechart']});
 			google.charts.setOnLoadCallback(drawChart);
+			var arrests1 = arrests1;
+			var neigh1 = neigh1;
+			var arrests2 = arrests2;
+			var neigh2 = neigh2;
+			var arrests3 = arrests3;
+			var neigh3 = neigh3;
+			var arrests4 = arrests4;
+			var neigh4 = neigh4;
+			var arrests5 = arrests5;
+			var neigh5 = neigh5;
+			
 
 			function drawChart() {
-
 				var data = google.visualization.arrayToDataTable([
 				['Neighborhood', 'Incidents'],
-				['Downtown West', 1191],
-				['Whittier', 487],
-				['Jordan', 305],
-				['Steward', 271],
-				['Ventura Village', 259]
+				[neigh1, arrests1],
+				[neigh2, arrests2],
+				[neigh3, arrests3],
+				[neigh4, arrests4],
+				[neigh5, arrests5]
 				]);
 
 				var options = {
@@ -35,7 +110,23 @@
 
 				chart.draw(data, options);
 			}
-		</script>
+				
+            }
+            
+        
+            
+var result = foo(neighborhood);
+//console.log('[' + result[0] + ']<br>[' + result[1] + ']') 
+
+//console.log(result[0]);
+//console.log(result[1]);
+
+
+
+        
+        
+    </script>
+		
 		<script type="text/javascript">
 			google.charts.load('current', {'packages':['corechart']});
 			google.charts.setOnLoadCallback(drawChart);
