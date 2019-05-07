@@ -10,171 +10,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<script src="policeData.js"></script>
+		<script type="text/javascript" src="policeData.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script>
-        var neighborhood = []
-        var offense = []
-        var precinct= []
-
-        for(var i=0; i < policeList.length; i++){
-            var police = policeList[i] 
-            neighborhood.push(police.neighborhood);
-            offense.push(police.offence);
-            precinct.push(police.precinct);
-        
-        }
-        //console.log(neighborhood.length);
-
-          function foo(neighborhood) {
-                var a = [], b = [], prev;
-
-                
-                neighborhood.sort();
-                for ( var i = 0; i < neighborhood.length; i++ ) {
-                    if ( neighborhood[i] !== prev ) {
-                        a.push(neighborhood[i]);
-                        b.push(1);
-                    } else {
-                        b[b.length-1]++;
-                    }
-                    prev = neighborhood[i];
-                }
-                var neigh1, neigh2, neigh3, neigh4, neigh5;
-                var arrests1 = 0, arrests2 = 0, arrests3 = 0, arrests4 = 0, arrests5 = 0;
-                for (var i = 0; i <neighborhood.length; i++ ){
-                    if (arrests1 < b[i]){
-                        arrests1 = b[i];
-                        neigh1 = a[i];
-                    }
-                    else if (arrests2 < b[i] && arrests2 < arrests1){
-                        arrests2 = b[i];
-                        neigh2 = a[i];
-                    }
-                    else if (arrests3 < b[i] && arrests3 < arrests2){
-                        arrests3 = b[i];
-                        neigh3 = a[i];
-                    }
-                    else if (arrests4 < b[i] && arrests4 < arrests3){
-                        arrests4 = b[i];
-                        neigh4 = a[i];
-                    }
-                    else if (arrests5 < b[i] && arrests5 < arrests4){
-                        arrests5 = b[i];
-                        neigh5 = a[i];
-                    }
-				}
-				
-				console.log(arrests1);
-				
-                console.log(neigh1);
-                //console.log(arrests2);
-                //console.log(neigh2);
-                //console.log(arrests3);
-                //console.log(neigh3);
-                //console.log(arrests4);
-                //console.log(neigh4);
-                //console.log(arrests5);
-                //console.log(neigh5);
-				//return [a, b];
-
-			google.charts.load('current', {'packages':['corechart']});
-			google.charts.setOnLoadCallback(drawChart);
-			var arrests1 = arrests1;
-			var neigh1 = neigh1;
-			var arrests2 = arrests2;
-			var neigh2 = neigh2;
-			var arrests3 = arrests3;
-			var neigh3 = neigh3;
-			var arrests4 = arrests4;
-			var neigh4 = neigh4;
-			var arrests5 = arrests5;
-			var neigh5 = neigh5;
-			
-
-			function drawChart() {
-				var data = google.visualization.arrayToDataTable([
-				['Neighborhood', 'Incidents'],
-				[neigh1, arrests1],
-				[neigh2, arrests2],
-				[neigh3, arrests3],
-				[neigh4, arrests4],
-				[neigh5, arrests5]
-				]);
-
-				var options = {
-				title: 'Neighborhoods'
-				};
-
-				var chart = new google.visualization.BarChart(document.getElementById('neighborhoodChart'));
-
-				chart.draw(data, options);
-			}
-				
-            }
-            
-        
-            
-var result = foo(neighborhood);
-//console.log('[' + result[0] + ']<br>[' + result[1] + ']') 
-
-//console.log(result[0]);
-//console.log(result[1]);
-
-
-
-        
-        
-    </script>
-		
-		<script type="text/javascript">
-			google.charts.load('current', {'packages':['corechart']});
-			google.charts.setOnLoadCallback(drawChart);
-	
-			function drawChart() {
-	
-				var data = google.visualization.arrayToDataTable([
-				['Offenses', 'Incidents'],
-				['Theft (other)', 2856],
-				['Theft (motor vehicle)', 2404],
-				['Burglary of Business', 451],
-				['Shoplifting', 442],
-				['Domestic Assault/ Strangulation', 199]
-				]);
-	
-				var options = {
-				title: 'Offenses'
-				};
-	
-				var chart = new google.visualization.BarChart(document.getElementById('offencesChart'));
-	
-				chart.draw(data, options);
-			}
-		</script>
-		<script type="text/javascript">
-			google.charts.load('current', {'packages':['corechart']});
-			google.charts.setOnLoadCallback(drawChart);
-	
-			function drawChart() {
-	
-				var data = google.visualization.arrayToDataTable([
-				['Precinct', 'Incidents'],
-				['3rd Precinct', 3062],
-				['5th Precinct', 2514],
-				['1st Precinct', 2288],
-				['4th Precinct', 2206],
-				['2nd Precinct', 1760]
-				]);
-	
-				var options = {
-				title: 'Precinct'
-				};
-	
-				var chart = new google.visualization.BarChart(document.getElementById('reportChart'));
-	
-				chart.draw(data, options);
-			}
-		</script>
+		<script type="text/javascript" src="neighborhood.js"></script>
+		<script type="text/javascript" src="offense.js"></script>
+		<script type="text/javascript" src="precinct.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -186,14 +26,17 @@ var result = foo(neighborhood);
 					<header id="header" class="alt">
 						<span class="logo"><img src="images/police_icon.png" alt="" /></span>
 						<h1>Police Incidents 2018</h1>
-						<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-							posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+						<p>Hello, in this site we recorded the crime rate in the local areas. 
+							We made this site for the people who are looking to move to the Minneapolis area 
+							or any cop that is new and wants to know the city a bit more. We categorized them
+							by Precinct, Offenses,and Neighborhood.
+						</p>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="#intro" class="active">Introduction</a></li>
+							<li><a href="#header" class="active">Introduction</a></li>
 							<li><a href="#first">Precinct</a></li>
 							<li><a href="#second">Offences</a></li>
 							<li><a href="#cta">Neighborhood</a></li>
@@ -202,21 +45,6 @@ var result = foo(neighborhood);
 
 				<!-- Main -->
 					<div id="main">
-
-						<!-- Introduction -->
-							<section id="intro" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Ipsum sed adipiscing</h2>
-										</header>
-										<p>Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
-										adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
-										Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.</p>
-									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-								</div>
-							</section>
 
 						<!-- Reported Date -->
 							<section id="first" class="main special">
@@ -228,29 +56,25 @@ var result = foo(neighborhood);
 								<div id="reportChart">
 									
 								</div>
-								<footer class="major">
-								</footer>
 							</section>
 
 						<!-- Offences -->
 							<section id="second" class="main special">
 								<header class="major">
-									<h2>Offences</h2>
+									<h2>Offenses</h2>
 									<p>This graph shows all the most popular offenses that they commited.<br />
 									</p>
 								</header>
-								<div id="offencesChart">
+								<div id="offenseChart">
 
 								</div>
-								<footer class="major">
-								</footer>
 							</section>
 
 						<!-- Neighborhood -->
 							<section id="cta" class="main special">
 								<header class="major">
 									<h2>Neighborhood</h2>
-									<p>This counts how many times how many instances have occured in each neighborhood.</p>
+									<p>These neighborhoods have the most incidents within the given year.</p>
 								</header>
 								<div id="neighborhoodChart">
 
