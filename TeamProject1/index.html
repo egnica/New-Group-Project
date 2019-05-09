@@ -6,99 +6,111 @@
 -->
 <html>
 	<head>
-		<title>Stellar by HTML5 UP</title>
+		<title>Police Incidents</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+		<script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
 		<script type="text/javascript" src="policeData.js"></script>
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-		<script type="text/javascript" src="neighborhood.js"></script>
-		<script type="text/javascript" src="offense.js"></script>
-		<script type="text/javascript" src="precinct.js"></script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="images/police_icon.png" alt="" /></span>
-						<h1>Police Incidents 2018</h1>
-						<p>Hello, in this site we recorded the crime rate in the local areas. 
-							We made this site for the people who are looking to move to the Minneapolis area 
-							or any cop that is new and wants to know the city a bit more. We categorized them
-							by Precinct, Offenses,and Neighborhood.
+		<div id="wrapper">
+			<!-- Header -->
+			<header id="header" class="alt">
+				<span class="logo"><img src="images/police_icon.png" alt="" /></span>
+				<h1>Police Incidents 2018</h1>
+				<p>Hello, in this site we recorded the crime rate in the local areas. 
+					We made this site for the people who are looking to move to the Minneapolis area 
+					or any cop that is new and wants to know the city a bit more. We categorized them
+					by Precinct, Offenses,and Neighborhood.
+				</p>
+			</header>
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="#header" class="active">Introduction</a></li>
+					<li><a href="#first">Precinct</a></li>
+					<li><a href="#second">Offences</a></li>
+					<li><a href="#cta">Neighborhood</a></li>
+				</ul>
+			</nav>
+			<!-- Main -->
+			<div id="main">
+				<!-- Reported Date -->
+				<section class="main special">
+					<header class="major">
+						<h2>Precinct</h2>
+						<p>This graph shows the number of times there was an incident within<br />
+						each precinct.</p>
+					</header>
+					<div id="first"></div>
+					<script type="text/javascript">
+						ReactDOM.render(
+							React.createElement(
+								"div",
+								{"id":"reportChart"},
+								""
+							),
+							document.getElementById("first")
+						);
+					</script>
+				</section>
+				<script type="text/javascript" src="precinct.js"></script>
+				<!-- Offences -->
+				<section class="main special">
+					<header class="major">
+						<h2>Offenses</h2>
+						<p>This graph shows all the most popular offenses that they commited.<br />
 						</p>
 					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#header" class="active">Introduction</a></li>
-							<li><a href="#first">Precinct</a></li>
-							<li><a href="#second">Offences</a></li>
-							<li><a href="#cta">Neighborhood</a></li>
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Reported Date -->
-							<section id="first" class="main special">
-								<header class="major">
-									<h2>Precinct</h2>
-									<p>This graph shows the number of times there was an incident within<br />
-									each precinct.</p>
-								</header>
-								<div id="reportChart">
-									
-								</div>
-							</section>
-
-						<!-- Offences -->
-							<section id="second" class="main special">
-								<header class="major">
-									<h2>Offenses</h2>
-									<p>This graph shows all the most popular offenses that they commited.<br />
-									</p>
-								</header>
-								<div id="offenseChart">
-
-								</div>
-							</section>
-
-						<!-- Neighborhood -->
-							<section id="cta" class="main special">
-								<header class="major">
-									<h2>Neighborhood</h2>
-									<p>These neighborhoods have the most incidents within the given year.</p>
-								</header>
-								<div id="neighborhoodChart">
-
-								</div>
-							</section>
-							
-
-							</div>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-					</footer>
-
+					<div id="second"></div>
+					<script type="text/javascript">
+						ReactDOM.render(
+							React.createElement(
+								"div",
+								{"id":"offenseChart"},
+								""
+							),
+							document.getElementById("second")
+						);
+					</script>
+				</section>
+				<script type="text/javascript" src="offense.js"></script>
+				<!-- Neighborhood -->
+				<section id="cta" class="main special">
+					<header class="major">
+						<h2>Neighborhood</h2>
+						<p>These neighborhoods have the most incidents within the given year.</p>
+					</header>
+					<div id="third"></div>
+					<script type="text/javascript">
+						ReactDOM.render(
+							React.createElement(
+								"div",
+								{"id":"neighborhoodChart"},
+								""
+							),
+							document.getElementById("third")
+						);
+					</script>
+				</section>
+				<script type="text/javascript" src="neighborhood.js"></script>
 			</div>
-
+			<!-- Footer -->
+			<footer id="footer">
+			</footer>
+		</div>
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>
