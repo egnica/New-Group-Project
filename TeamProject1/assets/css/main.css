@@ -3746,20 +3746,7 @@ input, select, textarea {
 
 		}
 /* Div for charts */
-		#neighborhoodChart{
-			border:2px solid green;
+		#neighborhoodChart, #reportChart, #offenseChart{
 			width: 100%;
-			height:400px;
-		}
-
-		#reportChart{
-			border:2px solid green;
-			width: 100%;
-			height:400px;
-		}
-
-		#offencesChart{
-			border:2px solid green;
-			width: 100%;
-			height:400px;
+			height: 400px;
 		}

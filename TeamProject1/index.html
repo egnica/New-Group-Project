@@ -30,38 +30,89 @@
 				</p>
 			</header>
 			<!-- Nav -->
-			<nav id="nav">
-				<ul>
-					<li><a href="#header" class="active">Introduction</a></li>
-					<li><a href="#first">Precinct</a></li>
-					<li><a href="#second">Offences</a></li>
-					<li><a href="#cta">Neighborhood</a></li>
-				</ul>
-			</nav>
+			<nav id="nav"></nav>
+			<script type="text/javascript">
+				ReactDOM.render(
+					React.createElement(
+						"ul",
+						null,
+						React.createElement(
+							"li",
+							null,
+							React.createElement(
+								"a",
+								{"href":"#header", "className":"active"},
+								"Introduction"
+							)
+						),
+						React.createElement(
+							"li",
+							null,
+							React.createElement(
+								"a",
+								{"href":"#precinct"},
+								"Precinct"
+							)
+						),
+						React.createElement(
+							"li",
+							null,
+							React.createElement(
+								"a",
+								{"href":"#offense"},
+								"Offenses"
+							)
+						),
+						React.createElement(
+							"li",
+							null,
+							React.createElement(
+								"a",
+								{"href":"#cta"},
+								"Neighborhood"
+							)
+						)
+					),
+					document.getElementById("nav")
+				);
+			</script>
 			<!-- Main -->
 			<div id="main">
 				<!-- Reported Date -->
-				<section class="main special">
-					<header class="major">
-						<h2>Precinct</h2>
-						<p>This graph shows the number of times there was an incident within<br />
-						each precinct.</p>
-					</header>
-					<div id="first"></div>
-					<script type="text/javascript">
-						ReactDOM.render(
+			<script type="text/javascript">
+				ReactDOM.render(
+					React.createElement(
+						"section",
+						{"id":"precinct", "className":"main special"},
+						React.createElement(
+							"header",
+							{"className":"major"},
+							React.createElement(
+								"h2",
+								null,
+								"Precinct"
+							),
+							React.createElement(
+								"p",
+								null,
+								"This graph shows the number of times there was an incident within each precinct."
+							)
+						),
+						React.createElement(
+							"div",
+							{"id":"first"},
 							React.createElement(
 								"div",
 								{"id":"reportChart"},
 								""
-							),
-							document.getElementById("first")
-						);
-					</script>
-				</section>
-				<script type="text/javascript" src="precinct.js"></script>
+							)
+						)
+					),
+					document.getElementById("main")
+				);
+			</script>
 				<!-- Offences -->
-				<section class="main special">
+				<section id="offense" class="main special">
 					<header class="major">
 						<h2>Offenses</h2>
 						<p>This graph shows all the most popular offenses that they commited.<br />
@@ -79,7 +130,6 @@
 						);
 					</script>
 				</section>
-				<script type="text/javascript" src="offense.js"></script>
 				<!-- Neighborhood -->
 				<section id="cta" class="main special">
 					<header class="major">
@@ -98,11 +148,7 @@
 						);
 					</script>
 				</section>
-				<script type="text/javascript" src="neighborhood.js"></script>
 			</div>
-			<!-- Footer -->
-			<footer id="footer">
-			</footer>
 		</div>
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -112,5 +158,8 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script type="text/javascript" src="precinct.js"></script>
+		<script type="text/javascript" src="offense.js"></script>
+		<script type="text/javascript" src="neighborhood.js"></script>
 	</body>
 </html>

@@ -101,7 +101,7 @@ function drawChart() {
     ]);
 
     var options = {
-    title: 'Precinct'
+    title: 'Offenses'
     };
 
     var chart = new google.visualization.BarChart(document.getElementById('offenseChart'));
